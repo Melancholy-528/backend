@@ -5,18 +5,20 @@ import tempfile
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 
-from fastapi import FastAPI, HTTPException, Query, UploadFile, File
+from fastapi import FastAPI, HTTPException, Query, UploadFile, File, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from app.schemas.applicant import Applicant
 from app.schemas.scheme import Scheme
+from app.schemas.user import UserSignUp, UserLogin, UserResponse, UserUpdate, TokenResponse
 from app.services.eligibility import check_eligibility
 from app.services.ollama_service import ollama_service
 from app.services.chatbot import chatbot, ChatRequest, ChatResponse
 from app.services.bank_locator import bank_locator, BankRecommendation, DISTRICT_BANK_DATABASE
 from app.services.dpr_calculator import dpr_calculator, DPRRequest, DPRResponse
+from app.services.auth_service import auth_service, get_current_user
 from app.miner.source_catalog import catalog, GovernmentSource
 from app.miner.crawler import crawl_sources
 from app.miner.scheme_miner import mine_url, save_mined_data
@@ -113,6 +115,13 @@ def root():
             "GET /banks/districts": "List mapped states and districts with Lead Bank profiles",
             "POST /calculator/dpr": "Generate Detailed Project Report (DPR), subsidy breakdown, and EMI schedule for bank loans",
             "GET /analytics/summary": "Ministry policy and demand analytics dashboard",
+            "POST /auth/signup": "Register a new beneficiary user account and receive JWT token",
+            "POST /auth/login": "Authenticate with email and password and receive JWT token",
+            "GET /auth/me": "Get current authenticated user profile",
+            "PUT /auth/me": "Update profile details of logged-in user",
+            "POST /users/saved-schemes/{code}": "Bookmark a scheme to user dashboard",
+            "DELETE /users/saved-schemes/{code}": "Remove a bookmarked scheme from user dashboard",
+            "GET /users/saved-schemes": "Get full details of all schemes bookmarked by the user",
         },
     }
 
@@ -477,3 +486,61 @@ def get_analytics_summary():
             "Artisans and traditional crafts under PM Vishwakarma receive the highest direct interest subvention (8%) alongside ₹15,000 modern toolkit vouchers.",
         ],
     }
+
+
+# ==========================================
+# User Authentication & Dashboard Endpoints
+# ==========================================
+
+@app.post("/auth/signup", response_model=TokenResponse)
+def signup_endpoint(request: UserSignUp):
+    """Register a new beneficiary/entrepreneur user account and return JWT access token."""
+    return auth_service.signup(request)
+
+
+@app.post("/auth/login", response_model=TokenResponse)
+def login_endpoint(request: UserLogin):
+    """Authenticate user with email and password and return JWT access token."""
+    return auth_service.login(request)
+
+
+@app.get("/auth/me", response_model=UserResponse)
+def get_me_endpoint(current_user: UserResponse = Depends(get_current_user)):
+    """Retrieve profile of the currently logged-in user."""
+    return current_user
+
+
+@app.put("/auth/me", response_model=UserResponse)
+def update_me_endpoint(request: UserUpdate, current_user: UserResponse = Depends(get_current_user)):
+    """Update profile of the currently logged-in user."""
+    return auth_service.update_profile(current_user.id, request)
+
+
+@app.post("/users/saved-schemes/{scheme_code}")
+def save_scheme_endpoint(scheme_code: str, current_user: UserResponse = Depends(get_current_user)):
+    """Bookmark a scheme code to user's saved list."""
+    updated = auth_service.toggle_saved_scheme(current_user.id, scheme_code, save=True)
+    return {
+        "status": "success",
+        "message": f"Scheme {scheme_code} bookmarked",
+        "saved_schemes": updated,
+    }
+
+
+@app.delete("/users/saved-schemes/{scheme_code}")
+def unsave_scheme_endpoint(scheme_code: str, current_user: UserResponse = Depends(get_current_user)):
+    """Remove a bookmarked scheme code from user's saved list."""
+    updated = auth_service.toggle_saved_scheme(current_user.id, scheme_code, save=False)
+    return {
+        "status": "success",
+        "message": f"Scheme {scheme_code} removed",
+        "saved_schemes": updated,
+    }
+
+
+@app.get("/users/saved-schemes", response_model=List[Scheme])
+def get_saved_schemes_endpoint(current_user: UserResponse = Depends(get_current_user)):
+    """Retrieve full details of all schemes bookmarked by the logged-in user."""
+    schemes = load_schemes_from_file()
+    saved_set = {s.upper() for s in current_user.saved_schemes}
+    return [s for s in schemes if s.scheme_code and s.scheme_code.upper() in saved_set]
