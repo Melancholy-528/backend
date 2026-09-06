@@ -1,0 +1,1075 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #ffffff;
+
+  color: #111827;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+
+  position: relative;
+  overflow: hidden;
+
+  background: #ffffff;
+
+  color: #111827;
+}
+
+/* Background glows */
+
+.glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  pointer-events: none;
+}
+
+.glow-one {
+  width: 350px;
+  height: 350px;
+
+  left: -150px;
+  top: -120px;
+
+  background: rgba(105, 55, 230, 0.08);
+}
+
+.glow-two {
+  width: 320px;
+  height: 320px;
+
+  right: -120px;
+  bottom: -120px;
+
+  background: rgba(26, 180, 220, 0.07);
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.login-container {
+  width: min(1400px, 94%);
+
+  min-height: 100vh;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(430px, 0.9fr);
+
+  gap: 45px;
+
+  align-items: center;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* =========================================
+   LEFT SECTION
+========================================= */
+
+.hero-section {
+  min-height: 850px;
+
+  position: relative;
+
+  padding:
+    45px
+    0
+    35px
+    10px;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  position: relative;
+
+  z-index: 10;
+}
+
+.scheme-logo {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #743cf3,
+      #276feb
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 0 25px
+    rgba(111, 56, 239, 0.3);
+}
+
+.scheme-logo svg {
+  width: 37px;
+  height: 37px;
+}
+
+.scheme-logo.small {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 21px;
+
+  margin:
+    0
+    auto
+    25px;
+
+  box-shadow:
+    0 0 30px
+    rgba(111, 56, 239, 0.3);
+}
+
+.scheme-logo.small svg {
+  width: 46px;
+  height: 46px;
+}
+
+/* Brand text */
+
+.brand-text h2 {
+  margin: 0;
+
+  font-size: 27px;
+
+  font-weight: 750;
+
+  color: #111827;
+}
+
+.brand-text h2 span {
+  color: #159fbc;
+}
+
+.brand-text p {
+  margin: 4px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero-content {
+  width: 400px;
+
+  position: relative;
+
+  z-index: 7;
+
+  margin-top: 48px;
+}
+
+.hero-content h1 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      58px,
+      6vw,
+      82px
+    );
+
+  line-height: 0.94;
+
+  letter-spacing: -4px;
+
+  font-weight: 800;
+
+  color: #111827;
+}
+
+.purple-text {
+  color: #8652f5;
+}
+
+.cyan-text {
+  color: #16b8d5;
+}
+
+.hero-description {
+  width: 390px;
+
+  max-width: 100%;
+
+  margin-top: 30px;
+
+  color: #667085;
+
+  font-size: 16px;
+
+  line-height: 1.75;
+}
+
+/* =========================================
+   INDIA IMAGE
+========================================= */
+
+.india-wrapper {
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  top: 170px;
+  right: 5px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+/* Glow behind image */
+
+.india-glow {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(30, 160, 240, 0.13);
+
+  filter: blur(55px);
+
+  animation:
+    indiaGlow 5s ease-in-out infinite;
+}
+
+/* Image blended into white */
+
+.india-image {
+  width: 430px;
+  height: 430px;
+
+  object-fit: contain;
+
+  position: relative;
+
+  border-radius: 25px;
+
+  /*
+    White background image ko
+    edges par fade karta hai.
+  */
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse 58% 58% at center,
+      black 38%,
+      rgba(0, 0, 0, 0.92) 52%,
+      rgba(0, 0, 0, 0.55) 68%,
+      transparent 84%
+    );
+
+  mask-image:
+    radial-gradient(
+      ellipse 58% 58% at center,
+      black 38%,
+      rgba(0, 0, 0, 0.92) 52%,
+      rgba(0, 0, 0, 0.55) 68%,
+      transparent 84%
+    );
+
+  filter:
+    brightness(1.02)
+    contrast(1.05)
+    saturate(1.05)
+    drop-shadow(
+      0 0 20px
+      rgba(40, 170, 255, 0.2)
+    );
+
+  animation:
+    indiaFloat 6s ease-in-out infinite;
+}
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+  width: 440px;
+
+  max-width: 100%;
+
+  position: relative;
+
+  z-index: 8;
+
+  margin-top: 145px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.feature-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.feature-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  border:
+    1px solid
+    #e4e7ec;
+}
+
+.feature-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.purple-icon {
+  color: #8b4cf5;
+
+  box-shadow:
+    0 8px 25px
+    rgba(139, 76, 245, 0.12);
+}
+
+.blue-icon {
+  color: #287df2;
+
+  box-shadow:
+    0 8px 25px
+    rgba(40, 125, 242, 0.12);
+}
+
+.cyan-icon {
+  color: #12b8d1;
+
+  box-shadow:
+    0 8px 25px
+    rgba(18, 184, 209, 0.12);
+}
+
+.feature-item h3 {
+  margin: 0 0 5px;
+
+  color: #111827;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+.feature-item p {
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+/* Bottom text */
+
+.bottom-text {
+  position: absolute;
+
+  left: 10px;
+  bottom: 28px;
+
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 14px;
+
+  z-index: 8;
+}
+
+.bottom-text span {
+  color: #12a9c4;
+}
+
+/* =========================================
+   LOGIN SECTION
+========================================= */
+
+.login-section {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  z-index: 20;
+}
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card {
+  width: 100%;
+
+  max-width: 520px;
+
+  padding: 42px;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  border:
+    1px solid
+    #e3e7ef;
+
+  box-shadow:
+    0 25px 70px
+    rgba(35, 45, 70, 0.13);
+
+  color: #111827;
+}
+
+/* =========================================
+   LOGIN HEADER
+========================================= */
+
+.login-card h2 {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 34px;
+
+  font-weight: 750;
+
+  letter-spacing: -1px;
+
+  color: #111827;
+}
+
+.login-subtitle {
+  margin:
+    10px
+    0
+    38px;
+
+  text-align: center;
+
+  color: #667085;
+
+  font-size: 15px;
+}
+
+.login-subtitle span {
+  color: #7850e8;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.input-group {
+  margin-bottom: 23px;
+}
+
+.input-group label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #344054;
+
+  font-size: 14px;
+
+  font-weight: 650;
+}
+
+.input-wrapper {
+  height: 62px;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 17px;
+
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  border:
+    1px solid
+    #d9deea;
+
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+.input-wrapper:focus-within {
+  border-color: #7654ee;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(118, 84, 238, 0.08);
+}
+
+.input-icon {
+  width: 22px;
+  height: 22px;
+
+  margin-right: 14px;
+
+  color: #667085;
+
+  flex-shrink: 0;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #111827;
+
+  font-size: 15px;
+}
+
+.input-wrapper input::placeholder {
+  color: #98a2b3;
+}
+
+/* Eye */
+
+.eye-button {
+  width: 28px;
+  height: 28px;
+
+  padding: 0;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #667085;
+}
+
+.eye-button svg {
+  width: 21px;
+  height: 21px;
+}
+
+/* =========================================
+   FORGOT PASSWORD
+========================================= */
+
+.forgot-password {
+  text-align: right;
+
+  margin:
+    -4px
+    0
+    26px;
+}
+
+.forgot-password a {
+  color: #8652e8;
+
+  font-size: 14px;
+
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  color: #6d3dd2;
+}
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-button {
+  width: 100%;
+
+  height: 62px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      100deg,
+      #9138ee 0%,
+      #684cf0 50%,
+      #1fc5dc 100%
+    );
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 10px 28px
+    rgba(108, 55, 235, 0.22);
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 35px
+    rgba(108, 55, 235, 0.32);
+}
+
+.login-arrow {
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin: 31px 0;
+}
+
+.divider span {
+  height: 1px;
+
+  flex: 1;
+
+  background: #e4e7ec;
+}
+
+.divider p {
+  margin: 0;
+
+  color: #98a2b3;
+
+  white-space: nowrap;
+
+  font-size: 13px;
+}
+
+/* =========================================
+   APPLICATION BUTTONS
+========================================= */
+
+.social-buttons {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.social-button {
+  min-height: 56px;
+
+  padding: 0 12px;
+
+  border-radius: 11px;
+
+  border:
+    1px solid
+    #d9deea;
+
+  background: #ffffff;
+
+  color: #344054;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  font-size: 14px;
+
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.social-button:hover {
+  background: #f8fafc;
+
+  border-color: #b9a8ed;
+
+  transform: translateY(-1px);
+}
+
+.google-logo {
+  font-size: 21px;
+
+  font-weight: 800;
+
+  color: #4285f4;
+}
+
+
+.facebook-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+
+
+/* =========================================
+   SIGNUP
+========================================= */
+
+.signup-text {
+  margin:
+    28px
+    0
+    0;
+
+  text-align: center;
+
+  color: #667085;
+
+  font-size: 14px;
+}
+
+.signup-text a {
+  color: #12a9c4;
+
+  text-decoration: none;
+
+  font-weight: 650;
+}
+
+.signup-text a:hover {
+  color: #078ca5;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes indiaFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes indiaGlow {
+  0%,
+  100% {
+    transform: scale(0.95);
+
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scale(1.08);
+
+    opacity: 0.75;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1150px) {
+
+  .login-container {
+    grid-template-columns:
+      minmax(0, 1fr)
+      450px;
+
+    gap: 25px;
+  }
+
+  .india-wrapper {
+    width: 400px;
+    height: 400px;
+
+    right: -30px;
+  }
+
+  .india-image {
+    width: 400px;
+    height: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 65px;
+  }
+
+  .features {
+    margin-top: 125px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .login-container {
+    width: 92%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+    padding: 35px 0;
+  }
+
+  .hero-section {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .hero-content {
+    width: 100%;
+
+    margin-top: 35px;
+  }
+
+  .hero-content h1 {
+    font-size: 60px;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .india-wrapper {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 340px;
+    height: 340px;
+
+    margin: 5px auto;
+  }
+
+  .india-image {
+    width: 340px;
+    height: 340px;
+  }
+
+  .features {
+    margin:
+      20px
+      auto
+      0;
+
+    text-align: left;
+  }
+
+  .bottom-text {
+    position: static;
+
+    margin-top: 30px;
+  }
+
+  .login-section {
+    width: 100%;
+  }
+
+  .login-card {
+    max-width: 520px;
+  }
+}
+
+/* =========================================
+   PHONE
+========================================= */
+
+@media (max-width: 550px) {
+
+  .login-card {
+    padding: 30px 22px;
+
+    border-radius: 20px;
+  }
+
+  .login-card h2 {
+    font-size: 28px;
+  }
+
+  .hero-content h1 {
+    font-size: 50px;
+
+    letter-spacing: -2px;
+  }
+
+  .india-wrapper {
+    width: 290px;
+    height: 290px;
+  }
+
+  .india-image {
+    width: 290px;
+    height: 290px;
+  }
+
+  .social-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+    gap: 13px;
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+  }
+}
