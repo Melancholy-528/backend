@@ -1,51 +1,50 @@
 {
   "schemes": [
     {
-      "name": "PM Vishwakarma",
+      "name": "PM Vishwakarma Scheme",
       "scheme_code": "PM-VISHWAKARMA",
       "ministry": "Ministry of Micro, Small and Medium Enterprises",
-      "description": "“Traditionally, crores of 'Vishwakarmas' who create something or the other by working hard with their hands, tools and equipment are the builders of this country. We have a huge list of countless people like the blacksmiths, goldsmiths, potters, carpenters, sculptors, artisans, masons etc. The count",
+      "description": "Central initiative providing collateral-free credit, skill verification, and modern toolkits for traditional artisans and craftspeople (tailors, carpenters, blacksmiths, potters, etc.).",
       "eligible_categories": [
         "Artisan",
+        "SC",
         "ST",
+        "OBC",
         "Women"
       ],
-      "eligible_category": "Artisan, ST, Women",
-      "income_limit": null,
-      "max_project_cost": 100000,
-      "min_age": null,
-      "max_age": null,
+      "max_project_cost": 300000,
       "subsidy_percentage": null,
+      "income_limit": null,
+      "min_age": 18,
+      "max_age": null,
       "benefits": [
-        "No. Of Applicants Successfully Received Modern Toolkit",
-        "easy access to collateral free credit",
-        "reduce the cost of credit by providing interest subvention.",
-        "b. Interested candidates can also enroll for 15 days (120 hours) Advanced Training",
-        "c. Training Stipend: Rs 500 per day"
+        "Collateral-free enterprise loan: ₹1 Lakh (1st tranche @ 5% interest) and ₹2 Lakhs (2nd tranche)",
+        "Direct 8% interest subvention paid by Central Government to the bank",
+        "₹15,000 modern toolkit incentive voucher",
+        "5-7 days basic skill training with ₹500/day stipend"
       ],
       "source_url": "https://pmvishwakarma.gov.in"
     },
     {
-      "name": "StandupIndia",
+      "name": "Stand-Up India Scheme",
       "scheme_code": "STANDUP-INDIA",
       "ministry": "Ministry of Finance / SIDBI",
-      "description": "Entrepreneurship Support to Women and SC & ST",
+      "description": "Facilitates bank loans between ₹10 Lakhs and ₹1 Crore to at least one Scheduled Caste (SC) or Scheduled Tribe (ST) borrower and at least one Woman borrower per bank branch for setting up greenfield enterprises.",
       "eligible_categories": [
-        "Minority",
-        "OBC",
-        "PwD",
         "SC",
         "ST",
         "Women"
       ],
-      "eligible_category": "Minority, OBC, PwD, SC, ST, Women",
-      "income_limit": null,
       "max_project_cost": 10000000,
+      "subsidy_percentage": 15.0,
+      "income_limit": null,
       "min_age": 18,
       "max_age": null,
-      "subsidy_percentage": 15.0,
       "benefits": [
-        "Composite loan (inclusive of Term Loan and Working Capital)."
+        "Composite loan (Term Loan + Working Capital) from ₹10 Lakhs up to ₹1 Crore",
+        "Covered under Credit Guarantee Scheme for Stand-Up India (CGSSI)",
+        "15% margin money can be converged with eligible state/central subsidies",
+        "Repayment tenure up to 7 years with up to 18 months moratorium"
       ],
       "source_url": "https://www.standupmitra.in"
     },
@@ -53,20 +52,42 @@
       "name": "NSFDC Term Loan Scheme",
       "scheme_code": "NSFDC-TERM-LOAN",
       "ministry": "Ministry of Social Justice and Empowerment",
-      "description": "Financial assistance to Scheduled Caste entrepreneurs for viable income-generating projects across service, manufacturing, and agricultural sectors.",
+      "description": "Concessional term loans provided to Scheduled Caste entrepreneurs for viable income-generating self-employment projects through State Channelizing Agencies (SCAs).",
       "eligible_categories": [
         "SC"
       ],
-      "eligible_category": "SC",
-      "income_limit": 300000,
       "max_project_cost": 5000000,
+      "subsidy_percentage": 10.0,
+      "income_limit": 300000,
       "min_age": 18,
       "max_age": 60,
-      "subsidy_percentage": 10.0,
       "benefits": [
-        "Loan assistance up to 90% of project cost (up to ₹50 Lakhs)",
-        "Concessional interest rate between 6% to 9% per annum",
-        "Long repayment period up to 10 years with moratorium"
+        "Loan assistance up to ₹50 Lakhs (up to 95% of project cost)",
+        "Concessional interest rate: 6% to 9% p.a.",
+        "Capital subsidy / margin money grant through State SC Development Corporations",
+        "Repayment tenure up to 5 to 10 years"
+      ],
+      "source_url": "https://nsfdc.nic.in"
+    },
+    {
+      "name": "NSFDC Mahila Samriddhi Yojana",
+      "scheme_code": "NSFDC-MSY",
+      "ministry": "Ministry of Social Justice and Empowerment",
+      "description": "Exclusive micro-credit scheme for women beneficiaries belonging to Scheduled Castes living below double the poverty line to start micro-enterprises and small shops.",
+      "eligible_categories": [
+        "SC",
+        "Women"
+      ],
+      "max_project_cost": 140000,
+      "subsidy_percentage": 25.0,
+      "income_limit": 300000,
+      "min_age": 18,
+      "max_age": 60,
+      "benefits": [
+        "Micro-credit up to ₹1,40,000 per female beneficiary",
+        "Highly subsidized interest rate of only 4% per annum for SC women",
+        "Capital subsidy of up to ₹10,000 / 25% of loan cost",
+        "No third party collateral required"
       ],
       "source_url": "https://nsfdc.nic.in"
     },
@@ -74,20 +95,19 @@
       "name": "NSFDC Micro Credit Finance (MCF)",
       "scheme_code": "NSFDC-MCF",
       "ministry": "Ministry of Social Justice and Empowerment",
-      "description": "Small credit facility targeting very small SC micro-entrepreneurs, street vendors, and tiny cottage trades through State Channelizing Agencies (SCAs).",
+      "description": "Small credit assistance for Scheduled Caste target groups for rapid establishment of tiny trade, tailoring, dairy, and rural retail ventures.",
       "eligible_categories": [
         "SC"
       ],
-      "eligible_category": "SC",
-      "income_limit": 300000,
       "max_project_cost": 140000,
+      "subsidy_percentage": 15.0,
+      "income_limit": 300000,
       "min_age": 18,
       "max_age": 65,
-      "subsidy_percentage": 15.0,
       "benefits": [
-        "Micro loan up to ₹1,40,000 per beneficiary",
-        "Extremely low interest rate at 5% per annum",
-        "Fast-track collateral-free approval via Self Help Groups"
+        "Quick disbursement up to ₹1,40,000 through SHGs and SCAs",
+        "Concessional interest of 5% p.a.",
+        "Repayable in quarterly installments over 3 years"
       ],
       "source_url": "https://nsfdc.nic.in"
     },
@@ -95,50 +115,153 @@
       "name": "NBCFDC General Loan Scheme",
       "scheme_code": "NBCFDC-GENERAL",
       "ministry": "Ministry of Social Justice and Empowerment",
-      "description": "Credit support to Other Backward Classes (OBC) entrepreneurs for setting up self-employment ventures.",
+      "description": "Financial assistance for backward classes (OBC) entrepreneurs to establish manufacturing, service, or retail ventures via State Channelizing Agencies.",
       "eligible_categories": [
         "OBC"
       ],
-      "eligible_category": "OBC",
-      "income_limit": 300000,
       "max_project_cost": 1500000,
+      "subsidy_percentage": 10.0,
+      "income_limit": 300000,
       "min_age": 18,
       "max_age": 60,
-      "subsidy_percentage": 10.0,
       "benefits": [
-        "Project loan up to ₹15 Lakhs (85% funded by NBCFDC)",
-        "Interest rates 6% to 8% per annum",
-        "Grace period up to 6 months for project establishment"
+        "Project loan up to ₹15 Lakhs for OBC entrepreneurs",
+        "Low interest rate of 6% to 8% p.a.",
+        "Margin money assistance through State OBC Development Corporations",
+        "Loan repayment up to 8 years"
       ],
       "source_url": "https://nbcfdc.gov.in"
     },
     {
-      "name": "PM SVANidhi",
-      "scheme_code": "PM-SVANIDHI",
-      "ministry": "Department of \nFinancial Services",
-      "description": "If you want to change your Mobile Number , Please",
+      "name": "NBCFDC New Swarnima Scheme for Women",
+      "scheme_code": "NBCFDC-NEW-SWARNIMA",
+      "ministry": "Ministry of Social Justice and Empowerment",
+      "description": "Term loan scheme exclusively for women entrepreneurs belonging to Other Backward Classes (OBC) to instill self-reliance and financial independence.",
       "eligible_categories": [
-        "Street Vendor",
-        "Women",
-        "General",
         "OBC",
-        "SC",
+        "Women"
+      ],
+      "max_project_cost": 200000,
+      "subsidy_percentage": 20.0,
+      "income_limit": 300000,
+      "min_age": 18,
+      "max_age": 60,
+      "benefits": [
+        "Concessional loan up to ₹2,00,000 for OBC women",
+        "Lowest interest rate of 5% per annum",
+        "Beneficiary requires zero or nominal own contribution",
+        "No collateral or third party security needed"
+      ],
+      "source_url": "https://nbcfdc.gov.in"
+    },
+    {
+      "name": "Venture Capital Fund for Scheduled Castes (VCF-SC)",
+      "scheme_code": "VCF-SC",
+      "ministry": "Ministry of Social Justice and Empowerment",
+      "description": "First-of-its-kind venture capital fund to promote entrepreneurship among SC youth and innovative start-ups through equity and debt investments.",
+      "eligible_categories": [
+        "SC"
+      ],
+      "max_project_cost": 150000000,
+      "subsidy_percentage": null,
+      "income_limit": null,
+      "min_age": 18,
+      "max_age": null,
+      "benefits": [
+        "Financial support from ₹20 Lakhs up to ₹15 Crore for SC-promoted enterprises",
+        "Equity participation and soft loan instruments at concessional 4% to 8% interest",
+        "Handholding and mentoring support from IFCI Venture Capital Funds"
+      ],
+      "source_url": "https://vcfsc.in"
+    },
+    {
+      "name": "Venture Capital Fund for Backward Classes (VCF-BC)",
+      "scheme_code": "VCF-BC",
+      "ministry": "Ministry of Social Justice and Empowerment",
+      "description": "Venture capital initiative to promote higher growth and technological innovation among entrepreneurs belonging to Other Backward Classes (OBC).",
+      "eligible_categories": [
+        "OBC"
+      ],
+      "max_project_cost": 50000000,
+      "subsidy_percentage": null,
+      "income_limit": null,
+      "min_age": 18,
+      "max_age": null,
+      "benefits": [
+        "Financial funding between ₹20 Lakhs and ₹5 Crore for OBC entrepreneurs",
+        "Concessional equity/debt linkage through IFCI Venture Capital",
+        "Encourages innovative and scalable manufacturing and services units"
+      ],
+      "source_url": "https://vcfbc.in"
+    },
+    {
+      "name": "NSTFDC Term Loan Scheme for Scheduled Tribes",
+      "scheme_code": "NSTFDC-TERM-LOAN",
+      "ministry": "Ministry of Tribal Affairs",
+      "description": "Concessional term loans provided to Scheduled Tribe (ST) individuals and self-help groups for income-generating industrial, business, and agricultural projects.",
+      "eligible_categories": [
         "ST"
       ],
-      "eligible_category": "Street Vendor, Women",
-      "income_limit": null,
-      "max_project_cost": 12500000,
-      "min_age": null,
-      "max_age": null,
-      "subsidy_percentage": null,
-      "benefits": [],
-      "source_url": "https://pmsvanidhi.mohua.gov.in"
+      "max_project_cost": 5000000,
+      "subsidy_percentage": 10.0,
+      "income_limit": 300000,
+      "min_age": 18,
+      "max_age": 60,
+      "benefits": [
+        "Term loan assistance up to ₹50 Lakhs (up to 90% of project cost)",
+        "Concessional interest rate between 6% and 8% p.a.",
+        "Disbursed through State Channelizing Agencies (SCAs) and Regional Rural Banks",
+        "Repayment period up to 5 to 10 years"
+      ],
+      "source_url": "https://nstfdc.tribal.gov.in"
+    },
+    {
+      "name": "Adivasi Mahila Sashaktikaran Yojana (AMSY)",
+      "scheme_code": "NSTFDC-AMSY",
+      "ministry": "Ministry of Tribal Affairs",
+      "description": "Concessional micro-credit scheme exclusively for Scheduled Tribe women to undertake viable micro-enterprises and traditional trades.",
+      "eligible_categories": [
+        "ST",
+        "Women"
+      ],
+      "max_project_cost": 200000,
+      "subsidy_percentage": 25.0,
+      "income_limit": 300000,
+      "min_age": 18,
+      "max_age": 60,
+      "benefits": [
+        "Loan up to ₹2,00,000 for tribal women at highly subsidized 4% interest rate",
+        "Capital subsidy / grant support up to 25%",
+        "Easy repayment over 5 years in quarterly installments"
+      ],
+      "source_url": "https://nstfdc.tribal.gov.in"
+    },
+    {
+      "name": "NMDFC Term Loan Scheme for Minorities",
+      "scheme_code": "NMDFC-TERM-LOAN",
+      "ministry": "Ministry of Minority Affairs",
+      "description": "Concessional credit and micro-financing for backward sections among notified Minorities (Muslims, Christians, Sikhs, Buddhists, Parsis, Jains).",
+      "eligible_categories": [
+        "Minority"
+      ],
+      "max_project_cost": 2000000,
+      "subsidy_percentage": 10.0,
+      "income_limit": 300000,
+      "min_age": 18,
+      "max_age": 60,
+      "benefits": [
+        "Loan up to ₹20 Lakhs for individual projects",
+        "Concessional interest rate of 6% p.a.",
+        "Virasat scheme for traditional minority craftspersons and artisans",
+        "Disbursed through State Channelizing Agencies (SCAs)"
+      ],
+      "source_url": "https://nmdfc.org"
     },
     {
       "name": "Prime Minister’s Employment Generation Programme (PMEGP)",
       "scheme_code": "PMEGP",
       "ministry": "Ministry of Micro, Small and Medium Enterprises",
-      "description": "Credit-linked subsidy programme to generate self-employment opportunities through micro-enterprises in non-farm sectors.",
+      "description": "Flagship credit-linked subsidy programme to generate self-employment through micro-enterprises in non-farm sector across India.",
       "eligible_categories": [
         "SC",
         "ST",
@@ -148,182 +271,90 @@
         "PwD",
         "General"
       ],
-      "eligible_category": "SC, ST, OBC, Women, Minority, PwD, General",
-      "income_limit": null,
       "max_project_cost": 5000000,
+      "subsidy_percentage": 35.0,
+      "income_limit": null,
       "min_age": 18,
       "max_age": null,
-      "subsidy_percentage": 35.0,
       "benefits": [
-        "Max project cost ₹50 Lakh for manufacturing, ₹20 Lakh for services",
-        "25% to 35% government subsidy for special categories (SC/ST/OBC/Women)",
-        "Bank financing for remaining 90-95% of project cost"
+        "Manufacturing project cost up to ₹50 Lakhs; Service projects up to ₹20 Lakhs",
+        "Capital Subsidy: 35% in rural areas and 25% in urban areas for SC, ST, OBC, Women, Minorities, and PwD",
+        "Beneficiary own contribution only 5% for special categories (10% for General)",
+        "Collateral-free bank financing covered under CGTMSE"
       ],
       "source_url": "https://www.kviconline.gov.in"
     },
     {
-      "name": "Mudra - Micro Units Development & Refinance Agency Ltd.",
+      "name": "Pradhan Mantri Mudra Yojana (PMMY)",
       "scheme_code": "MUDRA",
       "ministry": "Ministry of Finance",
-      "description": "Mudra - Micro Units Development & Refinance Agency Ltd.",
+      "description": "Refinancing support for micro and small enterprises across manufacturing, trading, and services without requiring collateral security.",
       "eligible_categories": [
-        "Minority",
+        "General",
         "OBC",
         "SC",
         "ST",
         "Women",
-        "General"
+        "Minority"
       ],
-      "eligible_category": "Minority, OBC, SC, ST, Women",
-      "income_limit": null,
-      "max_project_cost": null,
-      "min_age": 57,
-      "max_age": null,
+      "max_project_cost": 2000000,
       "subsidy_percentage": null,
+      "income_limit": null,
+      "min_age": 18,
+      "max_age": null,
       "benefits": [
-        "V) INDEBTEDNESS: of the Company including interest outstanding/accrued but not due for payment.",
-        "ii)  Interest due but not paid - -  1,34,63,08,318.00  1,34,63,08,318.00",
-        "iii)  Interest accrued but not due - - 0.00 0.00",
-        "ii)  Interest due but not paid - -  1,50,62,02,730.00  1,50,62,02,730.00",
-        "iii) Interest accrued but not due - - 0.00 0.00"
+        "Shishu (up to ₹50,000), Kishore (₹50,000 to ₹5 Lakhs), Tarun (₹5 Lakhs to ₹10 Lakhs, extended to ₹20 Lakhs)",
+        "Strictly collateral-free credit backed by Credit Guarantee Fund for Micro Units (CGFMU)",
+        "MUDRA RuPay debit card for convenient working capital withdrawal",
+        "Available across all commercial banks, RRBs, and Small Finance Banks"
       ],
       "source_url": "https://www.mudra.org.in"
     },
     {
-      "name": "Venture Capital Fund for Scheduled Castes (VCF-SC)",
-      "scheme_code": "VCF-SC",
-      "ministry": "Ministry of Social Justice and Empowerment",
-      "description": "First-of-its-kind venture capital initiative by MoSJE to promote entrepreneurship among SC entrepreneurs innovating in tech, manufacturing, and services.",
+      "name": "PM SVANidhi (Street Vendor’s AtmaNirbhar Nidhi)",
+      "scheme_code": "PM-SVANIDHI",
+      "ministry": "Ministry of Housing and Urban Affairs",
+      "description": "Micro-credit facility for urban street vendors and hawkers to resume livelihood and scale working capital.",
       "eligible_categories": [
-        "SC"
+        "Street Vendor"
       ],
-      "eligible_category": "SC",
+      "max_project_cost": 50000,
+      "subsidy_percentage": null,
       "income_limit": null,
-      "max_project_cost": 150000000,
       "min_age": 18,
       "max_age": null,
-      "subsidy_percentage": null,
       "benefits": [
-        "Financial assistance from ₹20 Lakhs up to ₹15 Crores",
-        "Concessional equity/quasi-equity return rate at 8% p.a. (3.75% p.a. for SC women/disabled)",
-        "Tenor of investment up to 10 years with handholding support"
+        "Affordable working capital credit: ₹10,000 (1st tranche), ₹20,000 (2nd tranche), and ₹50,000 (3rd tranche)",
+        "7% interest subsidy credited directly to bank account on timely repayment",
+        "Digital cashback incentives up to ₹1,200 per year for adopting UPI payments",
+        "No collateral or security needed"
       ],
-      "source_url": "https://vcfsc.in"
+      "source_url": "https://pmsvanidhi.mohua.gov.in"
     },
     {
-      "name": "Home - NSFDC",
-      "scheme_code": "NSFDC",
-      "ministry": "Ministry of Social Justice and Empowerment (MoSJE)",
-      "description": "Tender for Design, Development, Implementation, and Maintenance of an Integrated Data Repository and AI/ML Enabled Smart Data Analytical Dashboard cum Decision Support System",
-      "eligible_categories": [
-        "SC"
-      ],
-      "eligible_category": "SC",
-      "income_limit": null,
-      "max_project_cost": null,
-      "min_age": null,
-      "max_age": null,
-      "subsidy_percentage": null,
-      "benefits": [
-        "Blower Policy – Public Interest",
-        "‚Complaint under the Public Interest",
-        "NSFDC in their own interest. NSFDC",
-        "PIDPI (Public Interest  Disclosure and",
-        "Public Interest Disclosure and"
-      ],
-      "source_url": "https://nsfdc.nic.in"
-    },
-    {
-      "name": "होम | NBCFDC",
-      "scheme_code": "NBCFDC",
-      "ministry": "Ministry of Social Justice and Empowerment (MoSJE)",
-      "description": "JOINT-CSIR-UGC-NET-DEC- 2025  Result (Click here  to Download JOINT-CSIR-UGC-NET-DEC-2025  Result)",
-      "eligible_categories": [
-        "OBC"
-      ],
-      "eligible_category": "OBC",
-      "income_limit": null,
-      "max_project_cost": null,
-      "min_age": null,
-      "max_age": null,
-      "subsidy_percentage": null,
-      "benefits": [],
-      "source_url": "https://nbcfdc.gov.in"
-    },
-    {
-      "name": "Home | VENTURE CAPITAL FUND FOR BACKWARD CLASSES",
-      "scheme_code": "HOME-VENTURE-CAPITAL-FUND",
-      "ministry": "Ministry of Social Justice and Empowerment (MoSJE)",
-      "description": "Home | VENTURE CAPITAL FUND FOR BACKWARD CLASSES",
-      "eligible_categories": [
-        "SC"
-      ],
-      "eligible_category": "SC",
-      "income_limit": null,
-      "max_project_cost": null,
-      "min_age": null,
-      "max_age": null,
-      "subsidy_percentage": null,
-      "benefits": [],
-      "source_url": "https://vcfsc.in"
-    },
-    {
-      "name": "::NSTFDC::",
-      "scheme_code": "NSTFDC",
-      "ministry": "Ministry of Tribal Affairs Government of India",
-      "description": "Contribute your rendering of the National Anthem of India at :",
-      "eligible_categories": [
-        "Artisan",
-        "SC",
-        "ST",
-        "Women"
-      ],
-      "eligible_category": "Artisan, SC, ST, Women",
-      "income_limit": null,
-      "max_project_cost": 500000,
-      "min_age": null,
-      "max_age": null,
-      "subsidy_percentage": null,
-      "benefits": [],
-      "source_url": "https://nstfdc.tribal.gov.in"
-    },
-    {
-      "name": "राष्ट्रीय अल्पसंख्यक विकास एवं वित्त निगम की आधिकारिक वेबसाइट, अल्पसंख्यक कार्य मंत्रालय, भारत सरकार",
-      "scheme_code": "NMDFC-TERM-LOAN",
-      "ministry": "Ministry of Minority Affairs (MoMA)",
-      "description": "राष्ट्रीय अल्पसंख्यक विकास एवं वित्त निगम की आधिकारिक वेबसाइट, अल्पसंख्यक कार्य मंत्रालय, भारत सरकार",
-      "eligible_categories": [
-        "Minority"
-      ],
-      "eligible_category": "Minority",
-      "income_limit": null,
-      "max_project_cost": null,
-      "min_age": null,
-      "max_age": null,
-      "subsidy_percentage": null,
-      "benefits": [],
-      "source_url": "https://nmdfc.org"
-    },
-    {
-      "name": "MSME",
-      "scheme_code": "MSME",
-      "ministry": "Micro, Small and Medium Enterprises Department, Tamil Nadu",
-      "description": "Average Time Taken for Subsidy Approval: 86 Days",
+      "name": "Credit Guarantee Scheme for Micro & Small Enterprises (CGTMSE)",
+      "scheme_code": "CGTMSE",
+      "ministry": "Ministry of Micro, Small and Medium Enterprises",
+      "description": "Enables micro and small enterprises to access collateral-free institutional credit from scheduled commercial banks and financial institutions.",
       "eligible_categories": [
         "General",
         "SC",
         "ST",
         "OBC",
-        "Women"
+        "Women",
+        "Minority"
       ],
-      "eligible_category": "General, SC, ST, OBC, Women",
-      "income_limit": null,
-      "max_project_cost": null,
-      "min_age": null,
-      "max_age": null,
+      "max_project_cost": 50000000,
       "subsidy_percentage": null,
-      "benefits": [],
-      "source_url": "https://msmeonline.tn.gov.in/needs"
+      "income_limit": null,
+      "min_age": 18,
+      "max_age": null,
+      "benefits": [
+        "Credit guarantee coverage up to ₹5 Crore without third-party collateral",
+        "85% guarantee coverage for micro-enterprises and women-owned units",
+        "Supported across public sector banks, private banks, and designated NBFCs"
+      ],
+      "source_url": "https://www.cgtmse.in"
     }
   ],
   "documents": [

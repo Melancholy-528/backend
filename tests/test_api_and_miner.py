@@ -108,6 +108,83 @@ def test_matching_ineligible_reasons():
     assert len(first_ineligible["reasons"]) > 0
 
 
+def test_matching_caste_and_gender_differentiation():
+    base_applicant = {
+        "annual_income": 300000,
+        "project_cost": 1500000,
+        "age": 30,
+        "occupation": "Business",
+    }
+
+    # 1. General Male vs General Female
+    gen_male_resp = client.post("/match", json={**base_applicant, "category": "General", "gender": "Male"}).json()
+    gen_fem_resp = client.post("/match", json={**base_applicant, "category": "General", "gender": "Female"}).json()
+
+    gen_male_schemes = [m["scheme"] for m in gen_male_resp["matches"]]
+    gen_fem_schemes = [m["scheme"] for m in gen_fem_resp["matches"]]
+
+    # General Male is strictly disqualified from Stand-Up India; General Female is eligible for Stand-Up India
+    assert not any("Stand" in s for s in gen_male_schemes)
+    assert any("Stand" in s for s in gen_fem_schemes)
+    # Affirmative action schemes (NSFDC, NBCFDC, NSTFDC) should NOT appear for General Male
+    assert not any("NSFDC" in s or "NBCFDC" in s or "NSTFDC" in s for s in gen_male_schemes)
+
+    # 2. SC Male vs SC Female Enterprise Tier (15 Lakhs)
+    sc_male_resp = client.post("/match", json={**base_applicant, "category": "SC", "gender": "Male"}).json()
+    sc_fem_resp = client.post("/match", json={**base_applicant, "category": "SC", "gender": "Female"}).json()
+
+    sc_male_schemes = [m["scheme"] for m in sc_male_resp["matches"]]
+    sc_fem_schemes = [m["scheme"] for m in sc_fem_resp["matches"]]
+
+    # Both SC applicants have access to NSFDC Term Loan and Stand-Up India
+    assert any("NSFDC" in s for s in sc_male_schemes)
+    assert any("Stand" in s for s in sc_male_schemes)
+    assert any("NSFDC" in s for s in sc_fem_schemes)
+    assert any("Stand" in s for s in sc_fem_schemes)
+
+    # 3. Micro-Credit Tier (1 Lakh) - Strict Mahila Reservation Test
+    micro_applicant = {
+        "annual_income": 120000,
+        "project_cost": 100000,
+        "age": 28,
+        "occupation": "Tailoring",
+    }
+    sc_micro_male = client.post("/match", json={**micro_applicant, "category": "SC", "gender": "Male"}).json()
+    sc_micro_fem = client.post("/match", json={**micro_applicant, "category": "SC", "gender": "Female"}).json()
+
+    male_micro_matches = [m["scheme"] for m in sc_micro_male["matches"]]
+    fem_micro_matches = [m["scheme"] for m in sc_micro_fem["matches"]]
+
+    # NSFDC Mahila Samriddhi is strictly for women
+    assert not any("Mahila Samriddhi" in s for s in male_micro_matches)
+    assert any("Mahila Samriddhi" in s for s in fem_micro_matches)
+    # Check male has it in ineligible list with explanation
+    male_ineligible_reasons = [
+        r for inel in sc_micro_male["ineligible"] if "Mahila Samriddhi" in inel["scheme"]
+        for r in inel["reasons"]
+    ]
+    assert any("strictly reserved for Women" in r for r in male_ineligible_reasons)
+
+    # 4. OBC Male vs SC Male
+    obc_male_resp = client.post("/match", json={**base_applicant, "category": "OBC", "gender": "Male"}).json()
+    obc_male_schemes = [m["scheme"] for m in obc_male_resp["matches"]]
+
+    # OBC Male gets NBCFDC, but not NSFDC or NSTFDC or Stand-Up India (since male)
+    assert any("NBCFDC" in s for s in obc_male_schemes)
+    assert not any("NSFDC" in s for s in obc_male_schemes)
+    assert not any("Stand" in s for s in obc_male_schemes)
+
+    # SC Male gets NSFDC and Stand-Up India, but not NBCFDC
+    assert not any("NBCFDC" in s for s in sc_male_schemes)
+    assert any("NSFDC" in s for s in sc_male_schemes)
+
+    # 5. Scores should reflect gender and caste empowerment
+    # On PMEGP, SC Female gets special category subsidy weighting > General Male
+    pmegp_gen_male = next(m for m in gen_male_resp["matches"] if "PMEGP" in m["scheme"])
+    pmegp_sc_female = next(m for m in sc_fem_resp["matches"] if "PMEGP" in m["scheme"])
+    assert pmegp_sc_female["score"] > pmegp_gen_male["score"]
+
+
 def test_heuristics_parsing():
     assert parse_inr_amount("10 Lakhs") == 1000000
     assert parse_inr_amount("1.5 Crore") == 15000000
