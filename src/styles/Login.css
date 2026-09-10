@@ -1,1075 +1,635 @@
-* {
-  box-sizing: border-box;
+/* ==========================================================================
+   UdyamSetu AI - Login & Registration Styling
+   Theme: Navy Blue (#0A192F, #1E3A8A) + Crisp White (#FFFFFF) + Gold (#D97706)
+   ========================================================================== */
+
+:root {
+  --navy-darkest: #0a192f;
+  --navy-dark: #0f2137;
+  --navy-primary: #1e3a8a;
+  --navy-light: #2563eb;
+  --navy-subtle: #eff6ff;
+  --gold-accent: #d97706;
+  --gold-light: #fef3c7;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --text-light: #94a3b8;
+  --bg-white: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-alt: #f1f5f9;
+  --border-light: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 20px 35px -10px rgba(15, 23, 42, 0.2);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-html,
-body,
-#root {
-  margin: 0;
-  min-height: 100%;
-}
-
-body {
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-  background: #ffffff;
-
-  color: #111827;
-}
-
-button,
-input {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-/* =========================================
-   PAGE
-========================================= */
-
-.login-page {
+.login-page-wrapper {
   min-height: 100vh;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-subtle);
+  font-family: var(--font-family);
+  color: var(--text-dark);
+}
 
+/* ==========================================================================
+   TOP GOVERNMENT RIBBON
+   ========================================================================== */
+
+.login-gov-ribbon {
+  background-color: var(--navy-darkest);
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  padding: 6px 0;
+  border-bottom: 2px solid var(--gold-accent);
+}
+
+.login-ribbon-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ribbon-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gov-text {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.dot-sep {
+  color: #64748b;
+}
+
+.ribbon-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.ribbon-back-btn:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   2-COLUMN SPLIT CONTAINER
+   ========================================================================== */
+
+.login-split-container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: calc(100vh - 35px);
+}
+
+/* ==========================================================================
+   LEFT COLUMN: BRAND & TRUST PANEL
+   ========================================================================== */
+
+.login-brand-panel {
+  background: linear-gradient(135deg, var(--navy-darkest) 0%, #0e2448 60%, #1e3a8a 100%);
+  color: #ffffff;
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   overflow: hidden;
-
-  background: #ffffff;
-
-  color: #111827;
 }
 
-/* Background glows */
-
-.glow {
+.login-brand-panel::before {
+  content: '';
   position: absolute;
-
-  border-radius: 50%;
-
-  filter: blur(90px);
-
-  pointer-events: none;
-}
-
-.glow-one {
-  width: 350px;
-  height: 350px;
-
-  left: -150px;
-  top: -120px;
-
-  background: rgba(105, 55, 230, 0.08);
-}
-
-.glow-two {
-  width: 320px;
-  height: 320px;
-
-  right: -120px;
-  bottom: -120px;
-
-  background: rgba(26, 180, 220, 0.07);
-}
-
-/* =========================================
-   CONTAINER
-========================================= */
-
-.login-container {
-  width: min(1400px, 94%);
-
-  min-height: 100vh;
-
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.1fr)
-    minmax(430px, 0.9fr);
-
-  gap: 45px;
-
-  align-items: center;
-
-  position: relative;
-
-  z-index: 2;
-}
-
-/* =========================================
-   LEFT SECTION
-========================================= */
-
-.hero-section {
-  min-height: 850px;
-
-  position: relative;
-
-  padding:
-    45px
-    0
-    35px
-    10px;
-}
-
-/* =========================================
-   BRAND
-========================================= */
-
-.brand {
-  display: flex;
-
-  align-items: center;
-
-  gap: 14px;
-
-  position: relative;
-
-  z-index: 10;
-}
-
-.scheme-logo {
-  width: 58px;
-  height: 58px;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 17px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #743cf3,
-      #276feb
-    );
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.2);
-
-  box-shadow:
-    0 0 25px
-    rgba(111, 56, 239, 0.3);
-}
-
-.scheme-logo svg {
-  width: 37px;
-  height: 37px;
-}
-
-.scheme-logo.small {
-  width: 72px;
-  height: 72px;
-
-  border-radius: 21px;
-
-  margin:
-    0
-    auto
-    25px;
-
-  box-shadow:
-    0 0 30px
-    rgba(111, 56, 239, 0.3);
-}
-
-.scheme-logo.small svg {
-  width: 46px;
-  height: 46px;
-}
-
-/* Brand text */
-
-.brand-text h2 {
-  margin: 0;
-
-  font-size: 27px;
-
-  font-weight: 750;
-
-  color: #111827;
-}
-
-.brand-text h2 span {
-  color: #159fbc;
-}
-
-.brand-text p {
-  margin: 4px 0 0;
-
-  color: #667085;
-
-  font-size: 14px;
-}
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero-content {
+  top: -100px;
+  right: -100px;
   width: 400px;
-
-  position: relative;
-
-  z-index: 7;
-
-  margin-top: 48px;
-}
-
-.hero-content h1 {
-  margin: 0;
-
-  font-size:
-    clamp(
-      58px,
-      6vw,
-      82px
-    );
-
-  line-height: 0.94;
-
-  letter-spacing: -4px;
-
-  font-weight: 800;
-
-  color: #111827;
-}
-
-.purple-text {
-  color: #8652f5;
-}
-
-.cyan-text {
-  color: #16b8d5;
-}
-
-.hero-description {
-  width: 390px;
-
-  max-width: 100%;
-
-  margin-top: 30px;
-
-  color: #667085;
-
-  font-size: 16px;
-
-  line-height: 1.75;
-}
-
-/* =========================================
-   INDIA IMAGE
-========================================= */
-
-.india-wrapper {
-  position: absolute;
-
-  width: 430px;
-  height: 430px;
-
-  top: 170px;
-  right: 5px;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  z-index: 2;
-
+  height: 400px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
   pointer-events: none;
 }
 
-/* Glow behind image */
-
-.india-glow {
-  position: absolute;
-
-  width: 300px;
-  height: 300px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(30, 160, 240, 0.13);
-
-  filter: blur(55px);
-
-  animation:
-    indiaGlow 5s ease-in-out infinite;
+.brand-panel-inner {
+  max-width: 580px;
+  z-index: 1;
 }
 
-/* Image blended into white */
-
-.india-image {
-  width: 430px;
-  height: 430px;
-
-  object-fit: contain;
-
-  position: relative;
-
-  border-radius: 25px;
-
-  /*
-    White background image ko
-    edges par fade karta hai.
-  */
-
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse 58% 58% at center,
-      black 38%,
-      rgba(0, 0, 0, 0.92) 52%,
-      rgba(0, 0, 0, 0.55) 68%,
-      transparent 84%
-    );
-
-  mask-image:
-    radial-gradient(
-      ellipse 58% 58% at center,
-      black 38%,
-      rgba(0, 0, 0, 0.92) 52%,
-      rgba(0, 0, 0, 0.55) 68%,
-      transparent 84%
-    );
-
-  filter:
-    brightness(1.02)
-    contrast(1.05)
-    saturate(1.05)
-    drop-shadow(
-      0 0 20px
-      rgba(40, 170, 255, 0.2)
-    );
-
-  animation:
-    indiaFloat 6s ease-in-out infinite;
-}
-
-/* =========================================
-   FEATURES
-========================================= */
-
-.features {
-  width: 440px;
-
-  max-width: 100%;
-
-  position: relative;
-
-  z-index: 8;
-
-  margin-top: 145px;
-
+/* Logo */
+.panel-logo-row {
   display: flex;
-
-  flex-direction: column;
-
-  gap: 25px;
-}
-
-.feature-item {
-  display: flex;
-
   align-items: center;
-
-  gap: 18px;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
 }
 
-.feature-icon {
-  width: 58px;
-  height: 58px;
-
-  flex-shrink: 0;
-
+.brand-emblem-box {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.2rem;
+  border-radius: var(--radius-md);
   display: flex;
-
+  align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.panel-logo-row h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.panel-logo-row h2 span {
+  color: #60a5fa;
+}
+
+.panel-logo-row p {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Hero Content */
+.hero-trust-badge {
+  display: inline-flex;
   align-items: center;
-
-  border-radius: 16px;
-
-  background: #ffffff;
-
-  border:
-    1px solid
-    #e4e7ec;
-}
-
-.feature-icon svg {
-  width: 30px;
-  height: 30px;
-}
-
-.purple-icon {
-  color: #8b4cf5;
-
-  box-shadow:
-    0 8px 25px
-    rgba(139, 76, 245, 0.12);
-}
-
-.blue-icon {
-  color: #287df2;
-
-  box-shadow:
-    0 8px 25px
-    rgba(40, 125, 242, 0.12);
-}
-
-.cyan-icon {
-  color: #12b8d1;
-
-  box-shadow:
-    0 8px 25px
-    rgba(18, 184, 209, 0.12);
-}
-
-.feature-item h3 {
-  margin: 0 0 5px;
-
-  color: #111827;
-
-  font-size: 17px;
-
+  gap: 0.45rem;
+  background: rgba(217, 119, 6, 0.25);
+  color: #fbbf24;
+  border: 1px solid rgba(217, 119, 6, 0.4);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
   font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.25rem;
 }
 
-.feature-item p {
-  margin: 0;
+.panel-hero-text h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.4px;
+}
 
-  color: #667085;
+.hero-subline {
+  font-size: 1rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 2.25rem;
+}
 
-  font-size: 13px;
+/* Stats Row */
+.panel-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 2.5rem;
+  backdrop-filter: blur(8px);
+}
 
+.panel-stat-item strong {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fbbf24;
+  line-height: 1.2;
+}
+
+.panel-stat-item span {
+  display: block;
+  font-size: 0.76rem;
+  color: #cbd5e1;
+  margin-top: 0.2rem;
+}
+
+/* Trust Points */
+.panel-trust-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.trust-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.point-icon-box {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trust-point-item h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.trust-point-item p {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  line-height: 1.45;
+}
+
+.panel-footer-note p {
+  font-size: 0.78rem;
+  color: #64748b;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.25rem;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: FORM CARD PANEL
+   ========================================================================= */
+
+.login-form-panel {
+  background-color: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+}
+
+.login-card-box {
+  max-width: 480px;
+  width: 100%;
+}
+
+/* Tabs */
+.form-card-header {
+  margin-bottom: 1.75rem;
+}
+
+.auth-tab-pills {
+  display: flex;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 0.55rem 1rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.auth-tab.active {
+  background: var(--bg-white);
+  color: var(--navy-primary);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-card-header h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy-darkest);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.3px;
+}
+
+.form-instruction {
+  font-size: 0.9rem;
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
-/* Bottom text */
-
-.bottom-text {
-  position: absolute;
-
-  left: 10px;
-  bottom: 28px;
-
-  margin: 0;
-
-  color: #667085;
-
-  font-size: 14px;
-
-  z-index: 8;
+/* Quick Demo Login Banner */
+.demo-login-banner {
+  background: var(--navy-subtle);
+  border: 1.5px dashed #bfdbfe;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.5rem;
 }
 
-.bottom-text span {
-  color: #12a9c4;
+.demo-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--navy-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
 }
 
-/* =========================================
-   LOGIN SECTION
-========================================= */
+.demo-login-banner p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
 
-.login-section {
+.demo-btn-row {
   display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-
-  z-index: 20;
+  gap: 0.65rem;
+  flex-wrap: wrap;
 }
 
-/* =========================================
-   LOGIN CARD
-========================================= */
-
-.login-card {
-  width: 100%;
-
-  max-width: 520px;
-
-  padding: 42px;
-
-  border-radius: 24px;
-
-  background: #ffffff;
-
-  border:
-    1px solid
-    #e3e7ef;
-
-  box-shadow:
-    0 25px 70px
-    rgba(35, 45, 70, 0.13);
-
-  color: #111827;
-}
-
-/* =========================================
-   LOGIN HEADER
-========================================= */
-
-.login-card h2 {
-  margin: 0;
-
+.btn-demo-pill {
+  flex: 1;
+  min-width: 180px;
+  background: var(--bg-white);
+  border: 1px solid #93c5fd;
+  color: var(--navy-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
   text-align: center;
-
-  font-size: 34px;
-
-  font-weight: 750;
-
-  letter-spacing: -1px;
-
-  color: #111827;
 }
 
-.login-subtitle {
-  margin:
-    10px
-    0
-    38px;
-
-  text-align: center;
-
-  color: #667085;
-
-  font-size: 15px;
+.btn-demo-pill:hover {
+  background: #dbeafe;
+  border-color: var(--navy-primary);
 }
 
-.login-subtitle span {
-  color: #7850e8;
+.btn-demo-pill.secondary {
+  border-color: #fcd34d;
+  color: var(--gold-accent);
 }
 
-/* =========================================
-   INPUTS
-========================================= */
-
-.input-group {
-  margin-bottom: 23px;
+.btn-demo-pill.secondary:hover {
+  background: #fef3c7;
 }
 
-.input-group label {
-  display: block;
-
-  margin-bottom: 9px;
-
-  color: #344054;
-
-  font-size: 14px;
-
-  font-weight: 650;
-}
-
-.input-wrapper {
-  height: 62px;
-
-  width: 100%;
-
+.form-divider {
   display: flex;
-
   align-items: center;
-
-  padding: 0 17px;
-
-  border-radius: 12px;
-
-  background: #f8fafc;
-
-  border:
-    1px solid
-    #d9deea;
-
-  transition:
-    border-color 0.25s,
-    box-shadow 0.25s;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.78rem;
+  margin: 1.5rem 0 1.25rem;
 }
 
-.input-wrapper:focus-within {
-  border-color: #7654ee;
-
-  background: #ffffff;
-
-  box-shadow:
-    0 0 0 3px
-    rgba(118, 84, 238, 0.08);
+.form-divider::before,
+.form-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.input-icon {
-  width: 22px;
-  height: 22px;
+.form-divider span {
+  padding: 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
 
-  margin-right: 14px;
+/* Inputs */
+.auth-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
 
-  color: #667085;
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
 
+.form-input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy-darkest);
+}
+
+.label-with-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgot-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy-primary);
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.input-field-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg-white);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0 0.85rem;
+  height: 48px;
+  transition: all 0.2s;
+}
+
+.input-field-box:focus-within {
+  border-color: var(--navy-primary);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+}
+
+.field-icon {
+  color: var(--text-light);
+  margin-right: 0.65rem;
   flex-shrink: 0;
 }
 
-.input-wrapper input {
-  width: 100%;
-  height: 100%;
-
+.input-field-box input {
   border: none;
   outline: none;
-
-  background: transparent;
-
-  color: #111827;
-
-  font-size: 15px;
-}
-
-.input-wrapper input::placeholder {
-  color: #98a2b3;
-}
-
-/* Eye */
-
-.eye-button {
-  width: 28px;
-  height: 28px;
-
-  padding: 0;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  border: none;
-
-  background: transparent;
-
-  color: #667085;
-}
-
-.eye-button svg {
-  width: 21px;
-  height: 21px;
-}
-
-/* =========================================
-   FORGOT PASSWORD
-========================================= */
-
-.forgot-password {
-  text-align: right;
-
-  margin:
-    -4px
-    0
-    26px;
-}
-
-.forgot-password a {
-  color: #8652e8;
-
-  font-size: 14px;
-
-  text-decoration: none;
-}
-
-.forgot-password a:hover {
-  color: #6d3dd2;
-}
-
-/* =========================================
-   LOGIN BUTTON
-========================================= */
-
-.login-button {
+  background: none;
   width: 100%;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  font-family: inherit;
+}
 
-  height: 62px;
-
+.password-toggle-btn {
+  background: none;
   border: none;
-
-  border-radius: 12px;
-
+  color: var(--text-light);
+  cursor: pointer;
   display: flex;
-
   align-items: center;
-  justify-content: center;
-
-  gap: 18px;
-
-  color: white;
-
-  background:
-    linear-gradient(
-      100deg,
-      #9138ee 0%,
-      #684cf0 50%,
-      #1fc5dc 100%
-    );
-
-  font-size: 16px;
-
-  font-weight: 700;
-
-  box-shadow:
-    0 10px 28px
-    rgba(108, 55, 235, 0.22);
-
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+  padding: 0.25rem;
+  transition: color 0.15s;
 }
 
-.login-button:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 14px 35px
-    rgba(108, 55, 235, 0.32);
+.password-toggle-btn:hover {
+  color: var(--text-dark);
 }
 
-.login-arrow {
-  font-size: 25px;
-
-  line-height: 1;
-}
-
-/* =========================================
-   DIVIDER
-========================================= */
-
-.divider {
-  display: flex;
-
-  align-items: center;
-
-  gap: 13px;
-
-  margin: 31px 0;
-}
-
-.divider span {
-  height: 1px;
-
-  flex: 1;
-
-  background: #e4e7ec;
-}
-
-.divider p {
-  margin: 0;
-
-  color: #98a2b3;
-
-  white-space: nowrap;
-
-  font-size: 13px;
-}
-
-/* =========================================
-   APPLICATION BUTTONS
-========================================= */
-
-.social-buttons {
+.form-row-two-col {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
-  gap: 12px;
+  gap: 0.85rem;
 }
 
-.social-button {
-  min-height: 56px;
+.select-field {
+  height: 48px;
+  background: var(--bg-white);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0 0.85rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
 
-  padding: 0 12px;
+.select-field:focus {
+  border-color: var(--navy-primary);
+}
 
-  border-radius: 11px;
-
-  border:
-    1px solid
-    #d9deea;
-
-  background: #ffffff;
-
-  color: #344054;
-
+/* Submit Button */
+.btn-auth-submit {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  gap: 10px;
-
-  font-size: 14px;
-
-  transition:
-    background 0.2s,
-    border-color 0.2s,
-    transform 0.2s;
+  gap: 0.6rem;
+  background-color: var(--navy-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  height: 50px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
 }
 
-.social-button:hover {
-  background: #f8fafc;
-
-  border-color: #b9a8ed;
-
+.btn-auth-submit:hover {
+  background-color: #1e40af;
   transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(30, 58, 138, 0.35);
 }
 
-.google-logo {
-  font-size: 21px;
-
-  font-weight: 800;
-
-  color: #4285f4;
+.btn-auth-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
 }
 
-
-.facebook-icon {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-}
-
-
-
-/* =========================================
-   SIGNUP
-========================================= */
-
-.signup-text {
-  margin:
-    28px
-    0
-    0;
-
+/* Card Bottom */
+.form-card-bottom {
+  margin-top: 2rem;
   text-align: center;
-
-  color: #667085;
-
-  font-size: 14px;
 }
 
-.signup-text a {
-  color: #12a9c4;
-
-  text-decoration: none;
-
-  font-weight: 650;
+.btn-return-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  transition: background 0.15s;
+  margin-bottom: 0.75rem;
 }
 
-.signup-text a:hover {
-  color: #078ca5;
+.btn-return-home:hover {
+  background: var(--navy-subtle);
 }
 
-/* =========================================
-   ANIMATION
-========================================= */
-
-@keyframes indiaFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
+.card-privacy-notice {
+  font-size: 0.74rem;
+  color: var(--text-light);
 }
 
-@keyframes indiaGlow {
-  0%,
-  100% {
-    transform: scale(0.95);
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
 
-    opacity: 0.45;
-  }
-
-  50% {
-    transform: scale(1.08);
-
-    opacity: 0.75;
-  }
-}
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1150px) {
-
-  .login-container {
-    grid-template-columns:
-      minmax(0, 1fr)
-      450px;
-
-    gap: 25px;
-  }
-
-  .india-wrapper {
-    width: 400px;
-    height: 400px;
-
-    right: -30px;
-  }
-
-  .india-image {
-    width: 400px;
-    height: 400px;
-  }
-
-  .hero-content h1 {
-    font-size: 65px;
-  }
-
-  .features {
-    margin-top: 125px;
-  }
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 900px) {
-
-  .login-container {
-    width: 92%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 30px;
-
-    padding: 35px 0;
-  }
-
-  .hero-section {
-    width: 100%;
-
-    min-height: auto;
-
-    padding: 0;
-
-    text-align: center;
-  }
-
-  .brand {
-    justify-content: center;
-  }
-
-  .hero-content {
-    width: 100%;
-
-    margin-top: 35px;
-  }
-
-  .hero-content h1 {
-    font-size: 60px;
-  }
-
-  .hero-description {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .india-wrapper {
-    position: relative;
-
-    top: auto;
-    right: auto;
-
-    width: 340px;
-    height: 340px;
-
-    margin: 5px auto;
-  }
-
-  .india-image {
-    width: 340px;
-    height: 340px;
-  }
-
-  .features {
-    margin:
-      20px
-      auto
-      0;
-
-    text-align: left;
-  }
-
-  .bottom-text {
-    position: static;
-
-    margin-top: 30px;
-  }
-
-  .login-section {
-    width: 100%;
-  }
-
-  .login-card {
-    max-width: 520px;
-  }
-}
-
-/* =========================================
-   PHONE
-========================================= */
-
-@media (max-width: 550px) {
-
-  .login-card {
-    padding: 30px 22px;
-
-    border-radius: 20px;
-  }
-
-  .login-card h2 {
-    font-size: 28px;
-  }
-
-  .hero-content h1 {
-    font-size: 50px;
-
-    letter-spacing: -2px;
-  }
-
-  .india-wrapper {
-    width: 290px;
-    height: 290px;
-  }
-
-  .india-image {
-    width: 290px;
-    height: 290px;
-  }
-
-  .social-buttons {
+@media (max-width: 1024px) {
+  .login-split-container {
     grid-template-columns: 1fr;
   }
-
-  .feature-item {
-    gap: 13px;
+  .login-brand-panel {
+    padding: 2.5rem 1.5rem;
   }
+  .panel-hero-text h1 {
+    font-size: 1.8rem;
+  }
+  .login-form-panel {
+    padding: 2.5rem 1.5rem;
+  }
+}
 
-  .feature-icon {
-    width: 52px;
-    height: 52px;
+@media (max-width: 640px) {
+  .form-row-two-col {
+    grid-template-columns: 1fr;
+  }
+  .panel-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 }

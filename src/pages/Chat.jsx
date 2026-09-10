@@ -4,12 +4,12 @@ import remarkGfm from "remark-gfm";
 import { sendChatMessage } from "../services/api";
 import "../styles/Chat.css";
 
-function Chat() {
+function Chat({ onBack }) {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
       content:
-        "Hello! 👋 I'm SchemeSetu AI. I can help you understand government schemes, eligibility, subsidies and application-related information.",
+        "Hello! 👋 I'm UdyamSetu AI. I can help you understand government schemes, eligibility, subsidies and application-related information.",
     },
   ]);
 
@@ -35,7 +35,7 @@ function Chat() {
     setLoading(true);
 
     try {
-      const data = await sendChatMessage(question);
+      const data = await sendChatMessage({ message: question });
 
       const aiResponse =
         data.response ||
@@ -77,6 +77,12 @@ function Chat() {
 
       {/* HEADER */}
       <header className="chat-header">
+        {onBack && (
+          <button type="button" onClick={onBack}>
+            Back to Home
+          </button>
+        )}
+
         <div className="chat-brand">
 
           <div className="chat-logo">
@@ -84,7 +90,7 @@ function Chat() {
           </div>
 
           <div>
-            <h1>SchemeSetu AI</h1>
+            <h1>UdyamSetu AI</h1>
             <p>Government Scheme Assistant</p>
           </div>
 
@@ -227,7 +233,7 @@ function Chat() {
 
           <input
             type="text"
-            placeholder="Ask SchemeSetu AI anything..."
+            placeholder="Ask UdyamSetu AI anything..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={loading}
@@ -243,7 +249,7 @@ function Chat() {
         </form>
 
         <p className="chat-disclaimer">
-          SchemeSetu AI provides informational assistance.
+          UdyamSetu AI provides informational assistance.
           Always verify scheme details with the official source.
         </p>
 

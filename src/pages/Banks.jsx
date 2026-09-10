@@ -54,7 +54,7 @@ function Banks() {
           <div className="banks-logo">SS</div>
 
           <div>
-            <h1>SchemeSetu AI</h1>
+            <h1>UdyamSetu AI</h1>
             <p>Bank Recommendation</p>
           </div>
         </div>
