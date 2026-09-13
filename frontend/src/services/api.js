@@ -16,17 +16,26 @@ export const matchSchemes = async (userData) => {
   return await response.json();
 };
 
-
 /* ================= AI CHAT ================= */
 
-export const sendChatMessage = async (message) => {
+export const sendChatMessage = async ({
+  message,
+  history = [],
+  state = null,
+  district = null,
+  schemeCode = null,
+}) => {
   const response = await fetch(`${API_BASE_URL}/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message: message,
+      message,
+      history,
+      state,
+      district,
+      scheme_code: schemeCode,
     }),
   });
 
@@ -36,6 +45,18 @@ export const sendChatMessage = async (message) => {
 
   return await response.json();
 };
+
+export const getChatHealth = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/chat/health`);
+    if (!response.ok) return null;
+    return await response.json();
+  } catch (e) {
+    return null;
+  }
+};
+
+/* ================= NEARBY BANKS ================= */
 
 export const getNearbyBanks = async (schemeCode, state, district) => {
   const params = new URLSearchParams({

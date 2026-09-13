@@ -55,7 +55,7 @@ function Details({ onOpenChat, onOpenBanks })  {
         <div>
           <h1>Find Your Schemes</h1>
           <p>
-            Enter your details and SchemeSetu AI will find suitable
+            Enter your details and UdyamSetu AI will find suitable
             government schemes for you.
           </p>
         </div>
@@ -63,7 +63,7 @@ function Details({ onOpenChat, onOpenBanks })  {
         <div className="scheme-logo">
           <span>SS</span>
           <div>
-            <strong>SchemeSetu</strong>
+            <strong>UdyamSetu</strong>
             <small>AI</small>
           </div>
         </div>
@@ -213,7 +213,7 @@ function Details({ onOpenChat, onOpenBanks })  {
         <span className="results-label">AI MATCHING RESULTS</span>
         <h2>Schemes You May Be Eligible For</h2>
         <p>
-          Based on the information you provided, SchemeSetu AI
+          Based on the information you provided, UdyamSetu AI
           found these relevant schemes.
         </p>
       </div>
@@ -236,7 +236,7 @@ function Details({ onOpenChat, onOpenBanks })  {
   className="chat-navigation-button"
   onClick={onOpenChat}
 >
-  💬 Ask SchemeSetu AI
+  💬 Ask UdyamSetu AI
 </button>
 <button
   className="chat-navigation-button"
